@@ -2,6 +2,31 @@
 
 namespace _8
 {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MyComplex A = new MyComplex(1, 1);
+            MyComplex B = new MyComplex();
+            MyComplex C = new MyComplex(1);
+            MyComplex D = new MyComplex();
+
+            C = A + B;
+            C = A + 10.5;
+            C = 10.5 + A;
+            D = -C;
+            C = A + B + C + D;
+            C = A = B = C;
+
+            D.InputFromTerminal();
+
+            Console.WriteLine($"Re(A) = {A["Re"]}, Im(A) = {A["Im"]}");
+            Console.WriteLine($"Re(B) = {B["Re"]}, Im(B) = {B["Im"]}");
+            Console.WriteLine($"Re(C) = {C["Re"]}, Im(C) = {C["Im"]}");
+            Console.WriteLine($"Re(D) = {D["Re"]}, Im(D) = {D["Im"]}");
+            Console.WriteLine($"A = {A}, B = {B}, C = {C}, D = {D}");
+        }
+    }
     class MyComplex
     {
         private double Re, Im;
@@ -63,29 +88,5 @@ namespace _8
         }
     }
 
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            MyComplex A = new MyComplex(1, 1);
-            MyComplex B = new MyComplex();
-            MyComplex C = new MyComplex(1);
-            MyComplex D = new MyComplex();
-
-            C = A + B;
-            C = A + 10.5;
-            C = 10.5 + A;
-            D = -C;
-            C = A + B + C + D;
-            C = A = B = C;
-
-            D.InputFromTerminal();
-
-            Console.WriteLine($"Re(A) = {A["Re"]}, Im(A) = {A["Im"]}");
-            Console.WriteLine($"Re(B) = {B["Re"]}, Im(B) = {B["Im"]}");
-            Console.WriteLine($"Re(C) = {C["Re"]}, Im(C) = {C["Im"]}");
-            Console.WriteLine($"Re(D) = {D["Re"]}, Im(D) = {D["Im"]}");
-            Console.WriteLine($"A = {A}, B = {B}, C = {C}, D = {D}");
-        }
-    }
+    
 }
