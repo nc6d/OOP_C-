@@ -37,15 +37,20 @@ namespace Task_5
                     tempArr[i] = Convert.ToDouble(fileTxt[i]);
 
                 }
-                catch (FormatException e)
+                catch (FileNotFoundException FNF)
                 {
-                    Console.WriteLine(e.Message);
-                    Environment.Exit(0);
+                    Console.WriteLine(FNF.Message);
+                    Environment.Exit(1);
                 }
-                catch (InvalidCastException e)
+                catch (FormatException FE)
                 {
-                    Console.WriteLine(e.Message);
-                    Environment.Exit(0);
+                    Console.WriteLine(FE.Message);
+                    Environment.Exit(1);
+                }
+                catch (InvalidCastException ICE)
+                {
+                    Console.WriteLine(ICE.Message);
+                    Environment.Exit(1);
                 }
             }
             return tempArr;
@@ -55,7 +60,7 @@ namespace Task_5
         {
             for (int i = 0; i < arr_x.Length; i++)
             {
-                if (arr_x[i] % 5 == 0 && arr_x[i] != 0)
+                if (arr_x[i] % 5 == 0)
                 {
                     arr_x[i] = arr_x[i] - 8;
                 }

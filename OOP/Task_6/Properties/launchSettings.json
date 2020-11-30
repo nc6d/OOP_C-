@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "newProfile1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\nc_6d\\source\\repos\\OOP_C#\\OOP\\Task_6\\bin\\Debug\\netcoreapp3.1\\Task_6.exe"
+    }
+  }
+}

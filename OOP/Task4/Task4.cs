@@ -45,21 +45,21 @@ namespace Task4
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n\nRadius value is not correct, check and rewrite your txt file!");
-                    System.Environment.Exit(0);
+                    System.Environment.Exit(1);
                 }
                 string temp1 = sr.ReadLine();
                 while (!double.TryParse(temp1, out x))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n\nAxis X value is not correct, check and rewrite your txt file!");
-                    Environment.Exit(0);
+                    Environment.Exit(1);
                 }
                 string temp2 = sr.ReadLine();
                 while (!double.TryParse(temp2, out y))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("\n\nAxis Y value is not correct, check and rewrite your txt file!");
-                    Environment.Exit(0);
+                    Environment.Exit(1);
                 }
 
             }
@@ -77,6 +77,7 @@ namespace Task4
                 while (!double.TryParse(temp1, out x))
                 {
                     Console.WriteLine("Axis X value is not correct, try again");
+                    temp1 = Console.ReadLine();
                 }
                 Console.Write("Enter axis Y of center: ");
                 var temp2 = Console.ReadLine();
