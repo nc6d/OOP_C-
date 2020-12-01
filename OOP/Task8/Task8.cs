@@ -2,7 +2,7 @@
 
 namespace _8
 {
-    class Program
+    class Task8
     {
         static void Main(string[] args)
         {
@@ -40,12 +40,7 @@ namespace _8
         public static MyComplex operator +(MyComplex a, double b) => new MyComplex(a.Re + b, a.Im);
         public static MyComplex operator +(double a, MyComplex b) => new MyComplex(a + b.Re, b.Im);
         public static MyComplex operator -(MyComplex a) => new MyComplex(-a.Re, -a.Im);
-
-
-        public static MyComplex operator /(MyComplex a, MyComplex b)
-        {
-            return new MyComplex(a.Re * b.Re, a.Im * b.Im);
-        }
+        public static MyComplex operator /(MyComplex a, MyComplex b) => new MyComplex(a.Re * b.Re, a.Im * b.Im);
 
         public void InputFromTerminal()
         {
@@ -64,18 +59,12 @@ namespace _8
                 temp2 = Console.ReadLine();
             }
         }
-        public string this[string queue]
+        public string this[string index] => index switch
         {
-            get
-            {
-                return queue switch
-                {
-                    "Re" => Re.ToString(),
-                    "Im" => Im + "i",
-                    _ => null,
-                };
-            }
-        }
+            "Re" => Re.ToString(),
+            "Im" => Im + "i",
+            _ => null,
+        };
 
         public override string ToString()
         {
