@@ -20,11 +20,14 @@ namespace _8
 
             D.InputFromTerminal();
 
-            Console.WriteLine($"Re(A) = {A["Re"]}, Im(A) = {A["Im"]}");
-            Console.WriteLine($"Re(B) = {B["Re"]}, Im(B) = {B["Im"]}");
-            Console.WriteLine($"Re(C) = {C["Re"]}, Im(C) = {C["Im"]}");
-            Console.WriteLine($"Re(D) = {D["Re"]}, Im(D) = {D["Im"]}");
-            Console.WriteLine($"A = {A}, B = {B}, C = {C}, D = {D}");
+            Console.WriteLine($"\nA = {A}, B = {B}, C = {C}, D = {D}" + $"");
+
+            Console.WriteLine(
+                $"\nRe(A) = {A["Re"]}, Im(A) = {A["Im"]}\n" +
+                $"Re(B) = {B["Re"]}, Im(B) = {B["Im"]}\n" +
+                $"Re(C) = {C["Re"]}, Im(C) = {C["Im"]} \n" +
+                $"Re(D) = {D["Re"]}, Im(D) = {D["Im"]}\n");
+
         }
     }
     class MyComplex
@@ -77,5 +80,5 @@ namespace _8
         }
     }
 
-    
+
 }
