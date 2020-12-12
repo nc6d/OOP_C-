@@ -77,10 +77,10 @@ namespace Task_9
         {
             if (KeysList.Count > 0)
             {
-                foreach (int k in KeysList.Keys)
+                foreach (var k in KeysList.Keys)
                 {
                     Console.WriteLine($"\nЧисло {k} найдено в массиве по таким индексам:\r\n ");
-                    for (int i = 0; i < KeysList[k].Count; i++)
+                    for (var i = 0; i < KeysList[k].Count; i++)
                     {
                         Console.WriteLine("(" + string.Join(";", KeysList[k][i]) + ")");
                     }
@@ -114,21 +114,19 @@ namespace Task_9
 
         public Array(int row, int col)
         {
-            if (row > 0 && col > 0)
-            {
-                this.row = row;
-                this.col = col;
-                mainArr = new int[row][];
-            }
+            if (row <= 0 || col <= 0) return;
+            this.row = row;
+            this.col = col;
+            mainArr = new int[row][];
         }
 
         public void FillArray()
         {
-            Random rnd = new Random();
-            for (int i = 0; i < row; i++)
+            var rnd = new Random();
+            for (var i = 0; i < row; i++)
             {
                 mainArr[i] = new int[col];
-                for (int j = 0; j < col; j++)
+                for (var j = 0; j < col; j++)
                     mainArr[i][j] = rnd.Next(1, 41);
             }
         }
@@ -136,8 +134,8 @@ namespace Task_9
 
         public Dictionary<int, List<int[]>> KeySearch(int key)
         {
-            List<int[]> indexList = new List<int[]>();
-            Dictionary<int, List<int[]>> dict = new Dictionary<int, List<int[]>>();
+            var indexList = new List<int[]>();
+            var dict = new Dictionary<int, List<int[]>>();
 
             for (int i = 0; i < row; i++)
             {
@@ -159,12 +157,12 @@ namespace Task_9
 
         public Dictionary<string, int>[] MinMaxElements()
         {
-            Dictionary<string, int>[] dict = new Dictionary<string, int>[mainArr.Length];
+            var dict = new Dictionary<string, int>[mainArr.Length];
 
-            for (int i = 0; i < row; i++)
+            for (var i = 0; i < row; i++)
             {
-                int minElem = mainArr[i].Min();
-                int maxElem = mainArr[i].Max();
+                var minElem = mainArr[i].Min();
+                var maxElem = mainArr[i].Max();
                 dict[i] = new Dictionary<string, int>()
                 {
                     ["\nСтрока"] = i,
@@ -177,9 +175,9 @@ namespace Task_9
         }
         public override string ToString()
         {
-            string[] strArr = new string[mainArr.Length];
-            string[][] res = new string[mainArr.Length][];
-            for (int i = 0; i < mainArr.Length; i++)
+            var strArr = new string[mainArr.Length];
+            var res = new string[mainArr.Length][];
+            for (var i = 0; i < mainArr.Length; i++)
             {
                 res[i] = new string[mainArr[i].Length];
 
@@ -194,7 +192,7 @@ namespace Task_9
         }
 
     }
-    class BoolArray : Array 
+    class BoolArray : Array
     {
         private readonly bool[][] boolArr;
         public BoolArray(int row, int col) : base(row, col)
@@ -214,7 +212,17 @@ namespace Task_9
 
         public delegate bool IsEqual(int x);
 
-        public IsEqual ConditionCheck = x => x > 17;
+        public bool ConditionCheck(int x)
+        {
+            if (x > 17)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public void MyCalculation(int[][] arr, IsEqual func)
         {

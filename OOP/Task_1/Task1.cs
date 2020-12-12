@@ -4,12 +4,14 @@ namespace Task_1
 {
     class Task_1
     {
-        static void Main(string[] args)
-        {
-            Console.OutputEncoding = System.Text.Encoding.Unicode;
-            Console.InputEncoding = System.Text.Encoding.Unicode;
 
-            Console.WriteLine("Привіт, ДонНУ!");
+        static void Main(string[] args)
+
+        {
+            var tuple = (5, 10);
+
+            Console.WriteLine($"{tuple.Item2}");
+
         }
     }
 }

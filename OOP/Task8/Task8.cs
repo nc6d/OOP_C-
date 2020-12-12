@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace _8
+namespace Task8
 {
     class Task8
     {
@@ -11,6 +11,8 @@ namespace _8
             MyComplex C = new MyComplex(1);
             MyComplex D = new MyComplex();
 
+            D.InputFromTerminal();
+
             C = A + B;
             C = A + 10.5;
             C = 10.5 + A;
@@ -18,10 +20,7 @@ namespace _8
             C = A + B + C + D;
             C = A = B = C;
 
-            D.InputFromTerminal();
-
             Console.WriteLine($"\nA = {A}, B = {B}, C = {C}, D = {D}" + $"");
-
             Console.WriteLine(
                 $"\nRe(A) = {A["Re"]}, Im(A) = {A["Im"]}\n" +
                 $"Re(B) = {B["Re"]}, Im(B) = {B["Im"]}\n" +
@@ -39,11 +38,19 @@ namespace _8
             Re = initRe;
             Im = initIm;
         }
+
         public static MyComplex operator +(MyComplex a, MyComplex b) => new MyComplex(a.Re + b.Re, a.Im + b.Im);
         public static MyComplex operator +(MyComplex a, double b) => new MyComplex(a.Re + b, a.Im);
         public static MyComplex operator +(double a, MyComplex b) => new MyComplex(a + b.Re, b.Im);
         public static MyComplex operator -(MyComplex a) => new MyComplex(-a.Re, -a.Im);
-        public static MyComplex operator /(MyComplex a, MyComplex b) => new MyComplex(a.Re * b.Re, a.Im * b.Im);
+        public static MyComplex operator /(MyComplex a, MyComplex b)
+        {
+            MyComplex x = new MyComplex();
+            x.Re = a.Re * b.Re;
+            x.Im = a.Im * b.Im;
+            //x = a.Re * b.Re, a.Im * b.Im;
+            return x;
+        }
 
         public void InputFromTerminal()
         {
@@ -66,7 +73,7 @@ namespace _8
         {
             "Re" => Re.ToString(),
             "Im" => Im + "i",
-            _ => null,
+            _ => " ",
         };
 
         public override string ToString()
